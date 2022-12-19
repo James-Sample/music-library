@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
+    "prestart": "node scripts/create-database.js",
+    "start": "nodemon -r dotenv/config index.js"
   },
   "repository": {
     "type": "git",
@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/James-Sample/music-library#readme",
   "devDependencies": {
+    "dotenv": "^16.0.3",
     "eslint": "^8.29.0",
     "eslint-config-google": "^0.14.0",
     "nodemon": "^2.0.20"
