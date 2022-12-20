@@ -12,4 +12,6 @@ artistRouter.get('/:id', artistController.getSingleArtist);
 
 artistRouter.put('/:id', artistController.overwriteArtist);
 
+artistRouter.patch('/:id', artistController.updateArtist);
+
 module.exports = artistRouter;
