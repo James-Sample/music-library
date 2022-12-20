@@ -4,11 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "prestart": "node scripts/create-database.js",
+    "migrate": "node scripts/migrate.js",
+    "prestart": "node scripts/create-database.js && npm run migrate",
     "start": "nodemon -r dotenv/config index.js",
-    "test": "mocha tests/**/*.js --exit --recursive --timeout 60000 --file ./tests/test-setup.js",
-    "pretest": "node scripts/create-database.js test",
-    "posttest": "node scripts/drop-database.js"
+    "pretest": "node scripts/create-database.js test && npm run migrate test",
+    "test": "mocha tests/**/*.js --exit --recursive --timeout 60000 --file ./scripts/test-setup.js",
+    "posttest": "node scripts/drop-database.js test"
   },
   "repository": {
     "type": "git",
@@ -32,6 +33,7 @@
   },
   "dependencies": {
     "express": "^4.18.2",
-    "pg": "^8.8.0"
+    "pg": "^8.8.0",
+    "postgres-migrations": "^5.3.0"
   }
 }
