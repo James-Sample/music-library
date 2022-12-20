@@ -5,7 +5,7 @@ const app = express();
 
 app.use(express.json());
 
-app.use('/artist', artistRouter);
+app.use('/artists', artistRouter);
 
 // app.get('/testing', (req, res) => {
 //     res.status(200).json({ result: "got it"})

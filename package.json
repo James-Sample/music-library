@@ -8,7 +8,7 @@
     "prestart": "node scripts/create-database.js && npm run migrate",
     "start": "nodemon -r dotenv/config index.js",
     "pretest": "node scripts/create-database.js test && npm run migrate test",
-    "test": "mocha tests/**/*.js --exit --recursive --timeout 60000 --file ./scripts/test-setup.js",
+    "test": "mocha tests/**/*.js --exit --recursive --timeout 60000 --file ./tests/test-setup.js",
     "posttest": "node scripts/drop-database.js test"
   },
   "repository": {
